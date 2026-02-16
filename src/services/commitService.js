@@ -1,5 +1,5 @@
 const vscode = require('vscode');
-const { getStagedDiff } = require('./gitService');
+const { getWorkingDiff } = require('./gitService');
 const { generateCommitMessage } = require('./geminiService');
 
 async function generateAndSetCommitMessage() {
@@ -20,7 +20,7 @@ async function generateAndSetCommitMessage() {
     const repo = git.repositories[0];
 
     // Step 2: Get diff
-    const diff = await getStagedDiff();
+    const diff = await getWorkingDiff();
 
     // Step 3: Generate commit message from Gemini
     const commitMessage = await generateCommitMessage(diff);

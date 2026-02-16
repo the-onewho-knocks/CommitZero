@@ -12,18 +12,21 @@ async function generateCommitMessage(diff) {
     const model = settings.getGeminiModel();
 
     const url =
-        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+    `https://generativelanguage.googleapis.com/v1beta/${model}:generateContent?key=${apiKey}`;
 
     const prompt = `
-You are an expert software engineer.
+You are an expert senior software engineer writing git commit message at production level.
 
-Generate a concise git commit message based on this diff.
+Generate a git commit message based on this diff.
 
 Rules:
-- Use conventional commit format
-- Max 72 characters
-- No explanation
+- Use conventional github commit format
+- always be professional and only important stuff
+- Min 20 words explaination and tell modifications if any
+- Do not include meta-talk like "Here is your commit message." or "This commit applies"
+- Max 300 characters
 - Only output commit message
+
 
 Diff:
 ${diff}
