@@ -8,7 +8,6 @@ CommitGenie analyzes your staged or modified files using Google's Gemini AI and 
 
 [![VS Code](https://img.shields.io/badge/VS%20Code-1.109+-007ACC?logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 [![Gemini AI](https://img.shields.io/badge/Powered%20by-Gemini%20AI-4285F4?logo=google&logoColor=white)](https://ai.google.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 </div>
 
