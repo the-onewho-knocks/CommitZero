@@ -1,32 +1,40 @@
-
 {
-  "repository": {
-  "type": "git",
-  "url": "https://github.com/the-onewho-knocks/commitgenie"
-},
   "name": "commitgenie",
   "displayName": "CommitGenie",
   "description": "AI-powered VS Code extension that generates intelligent commit messages using Gemini API.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "commitgenie",
+
+  "icon": "assests/ok.png",
+
   "engines": {
-  "vscode": "^1.109.0"
-},
+    "vscode": "^1.109.0"
+  },
+
   "categories": [
     "Other"
   ],
+
   "main": "./src/extension.js",
+
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:commitgenie.generateCommit"
+  ],
+
   "contributes": {
+
     "commands": [
       {
         "command": "commitgenie.generateCommit",
         "title": "Generate Commit Message",
         "icon": {
-          "light": "assets/kk.svg",
-          "dark": "assets/kk.svg"
+          "light": "assests/pngegg.svg",
+          "dark": "assests/pngegg.svg"
         }
       }
     ],
+
     "menus": {
       "scm/title": [
         {
@@ -35,12 +43,40 @@
           "when": "scmProvider == git"
         }
       ]
+    },
+
+    "configuration": {
+      "title": "CommitGenie",
+      "properties": {
+
+        "commitgenie.geminiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Gemini API key used by CommitGenie to generate commit messages.",
+          "scope": "application"
+        },
+
+        "commitgenie.geminiModel": {
+          "type": "string",
+          "default": "models/gemini-2.5-flash",
+          "description": "Gemini model used for commit message generation.",
+          "scope": "application"
+        }
+
+      }
     }
+
   },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-onewho-knocks/commitgenie"
+  },
+
   "dependencies": {
-    "axios": "^1.7.0",
-    "dotenv": "^16.4.0"
+    "axios": "^1.7.0"
   },
+
   "devDependencies": {
     "@types/vscode": "^1.109.0"
   }

@@ -1,36 +1,16 @@
-const path = require('path');
-const dotenv = require('dotenv');
-const logger = require('../utils/logger');
-
-// Get absolute path to extension root using extension.js location
-const extensionRoot = path.resolve(__dirname, '../../');
-
-// Build full path to .env
-const envPath = path.join(extensionRoot, '.env');
-
-// Load .env explicitly
-const result = dotenv.config({ path: envPath });
-
-if (result.error) {
-
-    console.error("CommitGenie: Failed to load .env from:", envPath);
-
-} else {
-
-    console.log("CommitGenie: .env loaded from:", envPath);
-
-}
+const vscode = require('vscode');
 
 function getGeminiApiKey() {
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const config = vscode.workspace.getConfiguration('commitgenie');
 
-    if (!apiKey) {
+    const apiKey = config.get('geminiApiKey');
+
+    if (!apiKey || apiKey.trim() === "") {
 
         throw new Error(
-            "Gemini API key not found. Please add GEMINI_API_KEY to .env file."
+            "Gemini API key not set. Go to Settings → CommitGenie → Gemini Api Key"
         );
-
     }
 
     return apiKey;
@@ -38,8 +18,9 @@ function getGeminiApiKey() {
 
 function getGeminiModel() {
 
-    return process.env.GEMINI_MODEL || "models/gemini-2.5-flash";
+    const config = vscode.workspace.getConfiguration('commitgenie');
 
+    return config.get('geminiModel') || "models/gemini-2.5-flash";
 }
 
 module.exports = {
