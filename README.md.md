@@ -74,7 +74,7 @@ Or edit your `settings.json` directly:
 2. Modify or stage your files
 3. Open the **Source Control** panel (`Ctrl+Shift+G`)
 4. Click the **CommitGenie** icon in the panel toolbar
-5. Your commit message is generated and filled in automatically ✅
+5. Your commit message is generated and filled in automatically 
 
 No copying. No context switching. No blank staring at the input box.
 
