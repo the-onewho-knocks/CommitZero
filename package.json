@@ -3,7 +3,7 @@
   "displayName": "CommitGenie",
   "description": "AI-powered VS Code extension that generates intelligent commit messages using Gemini API.",
   "version": "1.0.1",
-  "publisher": "commitgenie",
+  "publisher": "HardikBorse",
 
   "icon": "assests/ok.png",
 
