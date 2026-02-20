@@ -2,7 +2,7 @@
   "name": "commitzero",
   "displayName": "commitzero",
   "description": "AI-powered VS Code extension that generates intelligent commit messages using Gemini API.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "HardikBorse",
 
   "icon": "assests/ok.png",
